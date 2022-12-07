@@ -1,8 +1,7 @@
 package com.leetcode.solution;
 
 import com.leetcode.model.ListNode;
-import com.leetcode.util.IntegerArrayConverter;
-import com.leetcode.util.TestUtil;
+import com.leetcode.util.ListNodeConverter;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
@@ -24,12 +23,10 @@ class OddEvenLinkedListSolutionTest {
             "1,2,3,4,5; 1,3,5,2,4",
             "2,1,3,5,6,4,7; 2,3,6,7,1,5,4"
     }, delimiter = ';')
-    void oddEvenList(@ConvertWith(IntegerArrayConverter.class) int[] input,
-                     @ConvertWith(IntegerArrayConverter.class) int[] expected) {
-        ListNode head = TestUtil.listNodeOf(input);
+    void oddEvenList(@ConvertWith(ListNodeConverter.class) ListNode input,
+                     @ConvertWith(ListNodeConverter.class) ListNode expected) {
+        ListNode result = solution.oddEvenList(input);
 
-        ListNode result = solution.oddEvenList(head);
-
-        assertEquals(TestUtil.listNodeOf(expected), result);
+        assertEquals(expected, result);
     }
 }
