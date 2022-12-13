@@ -13,6 +13,7 @@ package com.leetcode.solution;
  * @see <a href="https://leetcode.com/problems/minimum-falling-path-sum/">931. Minimum Falling Path Sum</a>
  */
 public class MinimumFallingPathSumSolution {
+    // Picked up the idea from this article: https://en.wikipedia.org/wiki/Seam_carving
     public int minFallingPathSum(int[][] matrix) {
         int len = matrix.length;
         int[][] temp = new int[len][matrix[0].length];
