@@ -1,5 +1,7 @@
 package com.leetcode.solution;
 
+import com.leetcode.util.GraphUtil;
+
 import java.util.*;
 
 /**
@@ -20,13 +22,7 @@ import java.util.*;
 public class FindIfPathExistsInGraphSolution {
     public boolean validPath(int n, int[][] edges, int source, int destination) {
 
-        Map<Integer, List<Integer>> graph = new HashMap<>();
-        for (int[] edge : edges) {
-            int x = edge[0];
-            int y = edge[1];
-            graph.computeIfAbsent(x, val -> new ArrayList<>()).add(y);
-            graph.computeIfAbsent(y, val -> new ArrayList<>()).add(x);
-        }
+        Map<Integer, List<Integer>> graph = GraphUtil.getLinkedNodeMap(edges);
 
         boolean[] visited = new boolean[n];
 
