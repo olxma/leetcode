@@ -13,7 +13,9 @@ public class IntegerListConverter extends SimpleArgumentConverter {
             String[] split = ((String) source).split("\\s*,\\s*");
             List<Integer> result = new ArrayList<>();
             for (String s : split) {
-                result.add(Integer.parseInt(s));
+                if (!"null".equals(s)) {
+                    result.add(Integer.parseInt(s));
+                }
             }
             return result;
         } else {
