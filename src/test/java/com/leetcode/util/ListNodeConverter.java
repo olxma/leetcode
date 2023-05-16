@@ -8,6 +8,9 @@ public class ListNodeConverter extends SimpleArgumentConverter {
     @Override
     protected Object convert(Object source, Class<?> targetType) throws ArgumentConversionException {
         if (source instanceof String && ListNode.class.isAssignableFrom(targetType)) {
+            if ("null".equals(source)) {
+                return null;
+            }
             String[] split = ((String) source).split("\\s*,\\s*");
             return buildList(split);
         } else {
